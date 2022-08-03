@@ -4,10 +4,12 @@ import 'react-toastify/dist/ReactToastify.css';
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import { Form, Field, Button } from './ContactForm.styled';
+import { useSelector } from 'react-redux';
 
-export function ContactForm({ onSubmit, contacts }) {
+export function ContactForm({ onSubmit }) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+  const contacts = useSelector(state => state.contacts.items);
 
   const nameInputIdGenerate = nanoid();
   const numberInputIdGenerate = nanoid();

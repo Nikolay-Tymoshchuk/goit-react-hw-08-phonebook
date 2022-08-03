@@ -10,8 +10,12 @@ import { addContact, removeContact, setFilter } from '../redux/contactsSlice';
 
 export function App() {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.items);
+  const contacts = useSelector(state => {
+    console.log('state.contacts :>> ', state.contacts.items);
+    return state.contacts.items;
+  });
   const filter = useSelector(state => state.contacts.filter);
+
   // const [contacts, setContacts] = useState([]);
   // const [filter, setFilter] = useState('');
   const isFirstLoad = useRef(true);
@@ -47,7 +51,10 @@ export function App() {
   return (
     <Container>
       <Title>Phonebook</Title>
-      <ContactForm onSubmit={contactCreate} contacts={contacts} />
+      <ContactForm onSubmit={contactCreate} />
+      <Title>Contacts</Title>
+      <Filter value={filter} onChange={handleFilterChange} />
+      <ContactList data={filteredContacts} onClick={removeContact} />
       <ToastContainer
         position="top-left"
         autoClose={3000}
@@ -56,9 +63,6 @@ export function App() {
         rtl={false}
         theme={'dark'}
       />
-      <Title>Contacts</Title>
-      <Filter value={filter} onChange={handleFilterChange} />
-      <ContactList data={filteredContacts} onClick={removeContact} />
     </Container>
   );
 }
