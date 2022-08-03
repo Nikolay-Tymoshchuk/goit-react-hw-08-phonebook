@@ -5,40 +5,43 @@ import { Container, Title } from './App.styled';
 import { ContactForm } from './ContactForm';
 import { ContactList } from './ContactList';
 import { Filter } from './Filter';
+import { useSelector, useDispatch } from 'react-redux';
+import { addContact, removeContact, setFilter } from '../redux/contactsSlice';
 
 export function App() {
-  const [contacts, setContacts] = useState([]);
-  const [filter, setFilter] = useState('');
+  const dispatch = useDispatch();
+  const contacts = useSelector(state => state.contacts.items);
+  const filter = useSelector(state => state.contacts.filter);
+  // const [contacts, setContacts] = useState([]);
+  // const [filter, setFilter] = useState('');
   const isFirstLoad = useRef(true);
 
   useEffect(() => {
     if (isFirstLoad.current) {
       const contactsFromLocalStorage = localStorage.getItem('contacts');
       if (contactsFromLocalStorage) {
-        setContacts(JSON.parse(contactsFromLocalStorage));
+        dispatch(addContact(JSON.parse(contactsFromLocalStorage)));
       }
       isFirstLoad.current = false;
       return;
     }
     localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
+  }, [contacts, dispatch]);
 
   const contactCreate = contact => {
-    setContacts([...contacts, contact]);
+    dispatch(addContact(contact));
   };
 
   const handleFilterChange = e => {
-    setFilter(e.target.value);
+    dispatch(setFilter(e.target.value));
   };
 
-  const removeContact = id => {
-    setContacts(contacts.filter(contact => contact.id !== id));
-  };
-
-  const normalizedContacts = filter.toLowerCase();
+  // const removeContact = id => {
+  //   setContacts(contacts.filter(contact => contact.id !== id));
+  // };
 
   const filteredContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(normalizedContacts)
+    contact.name.toLowerCase().includes(filter)
   );
 
   return (
