@@ -2,11 +2,17 @@ import styled from '@emotion/styled';
 import { IoMdContact } from 'react-icons/io';
 
 export const ContactItem = styled.li`
+  padding: 4px;
+  padding-right: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
   position: relative;
   display: grid;
   grid-template-columns: 24px 40% 25% 20%;
   column-gap: 5px;
   align-items: center;
+  box-shadow: 3px 3px 6px 0px rgba(66, 66, 66, 0.9),
+    -3px -3px 6px 0px rgba(252, 251, 251, 0.9);
 `;
 
 export const Icon = styled(IoMdContact)`
@@ -32,6 +38,8 @@ export const DeleteButton = styled.button`
   transition: all 0.2s ease-in;
   width: 40px;
   z-index: 1;
+  margin-left: auto;
+  border-radius: 4px;
 
   &::before,
   &::after {

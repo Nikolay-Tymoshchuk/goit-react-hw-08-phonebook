@@ -7,23 +7,23 @@ export const contactsSlice = createSlice({
     filter: '',
   },
   reducers: {
-    addContact: (state, action) => {
-      state.items.push(action.payload);
+    addContact: (state, { payload }) => {
+      state.items.push(payload);
     },
 
-    removeContact: (state, action) => {
-      state.items = state.items.filter(({ id }) => id !== action.payload);
+    removeContact: (state, { payload }) => {
+      state.items = state.items.filter(({ id }) => id !== payload);
     },
 
-    setFilter: (state, action) => {
-      state.filter = action.payload;
+    setFilter: (state, { payload }) => {
+      state.filter = payload;
     },
   },
 });
 
 export const { addContact, removeContact, setFilter } = contactsSlice.actions;
 
-// =====================BACKUP VARIANT=======================
+// =====================BACKUP VERSION=======================
 
 // import { addContact, removeContact, setFilter } from './contactsActions';
 

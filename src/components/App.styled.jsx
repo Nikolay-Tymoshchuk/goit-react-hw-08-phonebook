@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const Container = styled.div`
-  min-width: 350px;
+  min-width: 400px;
   height: max-content;
   display: inline-flex;
   flex-direction: column;
@@ -9,25 +9,36 @@ export const Container = styled.div`
   justify-content: start;
   font-size: 40;
   margin-left: 2%;
-  margin-top: 2%;
+  margin-top: 5%;
   color: var(--color-text-primary);
   border-radius: 10px;
-  padding: 16px;
+  padding: 10px;
   box-shadow: 0 0 20px 15px rgba(0, 0, 0, 0.7);
-  background-color: #000000;
-  background-position: 85% bottom;
-  background-size: 600%;
-  background-image: radial-gradient(
-    circle,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0) 69%,
-    rgba(2, 183, 255, 0.5) 70%,
-    rgba(255, 255, 255, 1) 72%,
-    rgba(0, 0, 0, 0) 73%,
-    rgba(0, 0, 0, 0) 100%
-  ); ;
+  background-color: var(--color-accent);
+  background-size: 100%;
+  overflow: hidden;
 `;
 
 export const Title = styled.h1`
   font-size: 40;
+`;
+
+export const InnerContainer = styled.div`
+  padding: 15px;
+  border-top: 0.5px solid #02b7ff50;
+  border-left: 0.5px solid #02b7ff50;
+  box-shadow: 8px 7px 15px 0px rgba(66, 66, 66, 0.9), -7px -4px 20px 5px #ffffff;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: inherit;
+  background-color: var(--color-background-primary);
+  background-image: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 87%,
+    rgba(2, 183, 255, 0.5) 88%,
+    rgba(255, 255, 255, 1) 94%,
+    rgba(0, 0, 0, 0) 95%,
+    rgba(0, 0, 0, 0) 100%
+  );
 `;

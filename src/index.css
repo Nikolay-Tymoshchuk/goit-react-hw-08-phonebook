@@ -1,9 +1,10 @@
 @import-normalize; /* bring in normalize.css styles */
 
 :root {
-  --color-text-primary: rgb(148, 148, 148);
-  --color-background-primary: rgb(12, 12, 14);
+  --color-text-primary: rgb(67, 72, 95);
+  --color-background-primary: rgba(243, 243, 243, 0.712);
   --color-accent: rgba(2, 183, 255, 1);
+  --color-border: rgba(0, 0, 0, 0.1);
 }
 
 body {

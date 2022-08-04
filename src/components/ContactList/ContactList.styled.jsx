@@ -6,6 +6,6 @@ export const List = styled.ul`
   padding: 0;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  row-gap: 12px;
+  width: 90%;
+  row-gap: 20px;
 `;
