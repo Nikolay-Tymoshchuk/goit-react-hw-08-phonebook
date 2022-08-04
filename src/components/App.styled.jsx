@@ -35,10 +35,13 @@ export const InnerContainer = styled.div`
   background-image: linear-gradient(
     90deg,
     rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0) 87%,
-    rgba(2, 183, 255, 0.5) 88%,
-    rgba(255, 255, 255, 1) 94%,
-    rgba(0, 0, 0, 0) 95%,
-    rgba(0, 0, 0, 0) 100%
+    rgba(0, 126, 175, 0.9) 89%,
+    rgba(0, 0, 0, 0) 89%,
+    rgba(255, 255, 255, 0.541) 90%,
+    rgba(0, 126, 175, 0.5) 92%,
+    rgba(0, 126, 175, 0.5) 93%,
+    #034a66 96%,
+    rgba(0, 126, 175, 0.9) 97%,
+    rgba(0, 126, 175, 0.9) 100%
   );
 `;

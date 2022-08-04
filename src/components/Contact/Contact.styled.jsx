@@ -43,7 +43,7 @@ export const DeleteButton = styled.button`
 
   &::before,
   &::after {
-    background-color: var(--color-accent);
+    background-color: #fff;
     content: '';
     display: block;
     height: 1px;
