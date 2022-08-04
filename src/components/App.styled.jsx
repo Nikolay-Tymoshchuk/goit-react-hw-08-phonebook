@@ -17,6 +17,14 @@ export const Container = styled.div`
   background-color: var(--color-accent);
   background-size: 100%;
   overflow: hidden;
+  background-image: linear-gradient(
+    to right,
+    #614519 0%,
+    #866319 20%,
+    #fcbf32 50%,
+    #866319 80%,
+    #614519 100%
+  );
 `;
 
 export const Title = styled.h1`
@@ -25,16 +33,14 @@ export const Title = styled.h1`
 
 export const InnerContainer = styled.div`
   padding: 15px;
-  border-top: 1px solid #dbdbdb;
-  border-left: 1px solid #dbdbdb;
-  box-shadow: 8px 7px 15px 0px rgba(66, 66, 66, 0.9), -7px -4px 20px 5px #ffffff;
+  box-shadow: 6px 8px 15px 0px rgb(22, 22, 22);
   margin-left: auto;
   margin-right: auto;
   border-radius: inherit;
   background-color: var(--color-background-primary);
   background-image: linear-gradient(
     90deg,
-    rgba(0, 0, 0, 0) 0%,
+    rgba(231, 231, 231, 0.1) 0%,
     rgba(0, 126, 175, 0.9) 89%,
     rgba(0, 0, 0, 0) 89%,
     rgba(255, 255, 255, 0.541) 90%,
