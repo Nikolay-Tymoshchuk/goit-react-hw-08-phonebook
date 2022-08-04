@@ -7,7 +7,7 @@ export const Contact = ({ options: { id, name, number } }) => {
   const dispatch = useDispatch();
 
   return (
-    <ContactItem id={id}>
+    <ContactItem>
       <Icon />
       <span>{name}:</span>
       <span>{number}</span>
