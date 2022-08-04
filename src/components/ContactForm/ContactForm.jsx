@@ -3,12 +3,12 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { nanoid } from 'nanoid';
 import { Form, Field, Button } from './ContactForm.styled';
-import { addContact } from 'redux/contactsActions';
+import { addContact } from 'redux/contactsReducer';
 import { useDispatch, useSelector } from 'react-redux';
 
 export function ContactForm() {
-  const contacts = useSelector(state => state.contacts.items);
   const dispatch = useDispatch();
+  const contacts = useSelector(state => state.contacts.items);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
