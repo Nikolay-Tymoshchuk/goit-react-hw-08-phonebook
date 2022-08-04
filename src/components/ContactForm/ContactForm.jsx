@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import { Form, Field, Button } from './ContactForm.styled';
-import { useSelector } from 'react-redux';
+import { addContact } from 'redux/contactsActions';
+import { useDispatch, useSelector } from 'react-redux';
 
-export function ContactForm({ onSubmit }) {
+export function ContactForm() {
+  const contacts = useSelector(state => state.contacts.items);
+  const dispatch = useDispatch();
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
-  const contacts = useSelector(state => state.contacts.items);
 
   const nameInputIdGenerate = nanoid();
   const numberInputIdGenerate = nanoid();
@@ -29,7 +30,7 @@ export function ContactForm({ onSubmit }) {
       toast.error(`Contact ${name} is already exist`);
       return;
     }
-    onSubmit({ name, number, id: nanoid() });
+    dispatch(addContact({ name, number, id: nanoid() }));
     toast.success(`Contact ${name} has been added`);
     setName('');
     setNumber('');
@@ -66,14 +67,3 @@ export function ContactForm({ onSubmit }) {
     </Form>
   );
 }
-
-ContactForm.propTypes = {
-  contacts: PropTypes.arrayOf(
-    PropTypes.exact({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-  onSubmit: PropTypes.func.isRequired,
-};
