@@ -25,8 +25,8 @@ export const Title = styled.h1`
 
 export const InnerContainer = styled.div`
   padding: 15px;
-  border-top: 0.5px solid #02b7ff50;
-  border-left: 0.5px solid #02b7ff50;
+  border-top: 1px solid #dbdbdb;
+  border-left: 1px solid #dbdbdb;
   box-shadow: 8px 7px 15px 0px rgba(66, 66, 66, 0.9), -7px -4px 20px 5px #ffffff;
   margin-left: auto;
   margin-right: auto;
