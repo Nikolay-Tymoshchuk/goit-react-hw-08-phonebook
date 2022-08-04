@@ -12,9 +12,7 @@ export function App() {
   const contacts = useSelector(state => state.contacts.items);
   const filter = useSelector(state => state.contacts.filter);
   const dispatch = useDispatch();
-  console.log('contacts :>> ', contacts);
-  console.log('filter :>> ', filter);
-  console.log('addContact() :>> ', addContact());
+
   // const [contacts, setContacts] = useState([]);
   // const [filter, setFilter] = useState('');
   // const isFirstLoad = useRef(true);
@@ -33,10 +31,6 @@ export function App() {
 
   const contactCreate = contact => {
     dispatch(addContact(contact));
-  };
-
-  const handleFilterChange = e => {
-    setFilter(e.target.value);
   };
 
   const removeContact = id => {
@@ -63,7 +57,7 @@ export function App() {
         theme={'dark'}
       />
       <Title>Contacts</Title>
-      <Filter value={filter} onChange={handleFilterChange} />
+      <Filter />
       <ContactList data={filteredContacts} onClick={removeContact} />
     </Container>
   );

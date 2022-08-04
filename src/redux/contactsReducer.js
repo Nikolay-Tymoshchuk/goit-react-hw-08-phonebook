@@ -1,4 +1,4 @@
-import { createReducer, createAction } from '@reduxjs/toolkit';
+import { createReducer } from '@reduxjs/toolkit';
 import { addContact, removeContact, setFilter } from './contactsActions';
 
 // const initialState = {
@@ -35,7 +35,6 @@ const initialState = {
 
 const contactsReducer = createReducer(initialState, {
   [addContact]: (state, action) => {
-    console.log('action.payload :>> ', action.payload);
     state.items.push(action.payload);
   },
   [removeContact]: (state, action) => {
