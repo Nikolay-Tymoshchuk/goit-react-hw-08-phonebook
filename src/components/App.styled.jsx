@@ -37,18 +37,19 @@ export const InnerContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   border-radius: inherit;
-  background-color: var(--color-background-primary);
   background-image: linear-gradient(
     90deg,
-    rgba(231, 231, 231, 0.1) 0%,
-    rgba(0, 126, 175, 0.9) 74%,
-    rgba(0, 89, 124, 1) 89%,
-    #b6caff 89%,
-    #e5f0fd 90%,
-    rgb(102, 148, 165) 92%,
-    rgb(73, 138, 163) 93%,
-    rgb(6, 54, 73) 96%,
-    rgba(0, 89, 124, 1) 97%,
-    rgba(0, 89, 124, 1) 100%
+    #e7e7e7 0%,
+    #bebebe 25%,
+    #eeeeee 50%,
+    #f8f8f8 55%,
+    #505050 89%,
+    #e7e7e7 89%,
+    #e7e7e7 90%,
+    #a0a2a3 92%,
+    #9b9b9b 93%,
+    #454647 96%,
+    #767779 97%,
+    #797979 100%
   );
 `;
