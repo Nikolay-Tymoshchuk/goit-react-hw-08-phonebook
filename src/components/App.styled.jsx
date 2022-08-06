@@ -40,16 +40,16 @@ export const InnerContainer = styled.div`
   background-image: linear-gradient(
     90deg,
     #e7e7e7 0%,
-    #bebebe 25%,
+    #c4c4c7 25%,
     #eeeeee 50%,
     #f8f8f8 55%,
-    #505050 89%,
-    #e7e7e7 89%,
-    #e7e7e7 90%,
+    #3a3a3a 88%,
+    #d6d6d6 89%,
+    #d8d8d8 90%,
     #a0a2a3 92%,
     #9b9b9b 93%,
-    #454647 96%,
-    #767779 97%,
-    #797979 100%
+    #252525 96%,
+    #3f4041 97%,
+    #3f3f3f 100%
   );
 `;

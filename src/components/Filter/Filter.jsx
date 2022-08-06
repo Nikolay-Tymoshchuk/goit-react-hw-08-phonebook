@@ -1,13 +1,13 @@
 import { nanoid } from 'nanoid';
 import { Field } from './Filter.styled';
-import { setFilter } from 'redux/contactsReducer';
-import { useSelector, useDispatch } from 'react-redux';
+import { setFilter, getFilter } from 'redux/contactsSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 export const Filter = () => {
+  const filter = useSelector(getFilter);
   const dispatch = useDispatch();
 
   const inputIdGenerate = nanoid();
-  const filter = useSelector(state => state.contacts.filter);
 
   return (
     <>
