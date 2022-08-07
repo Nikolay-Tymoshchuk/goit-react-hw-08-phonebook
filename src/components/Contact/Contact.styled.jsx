@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { IoMdContact } from 'react-icons/io';
+import { CgCloseO } from 'react-icons/cg';
 
 export const ContactItem = styled.li`
   padding: 4px;
@@ -8,9 +9,10 @@ export const ContactItem = styled.li`
   border-radius: 10px;
   position: relative;
   display: grid;
-  grid-template-columns: 24px 40% 25% 20%;
+  grid-template-columns: 24px 40% 37% 8%;
   column-gap: 5px;
   align-items: center;
+  font-size: 14px;
   box-shadow: 3px 3px 6px 0px rgba(66, 66, 66, 0.9),
     -3px -3px 6px 0px rgba(252, 251, 251, 0.9);
 `;
@@ -21,57 +23,14 @@ export const Icon = styled(IoMdContact)`
   color: var(--color-accent);
 `;
 
-export const DeleteButton = styled.button`
-  background: inherit;
-  border: 0;
-  box-sizing: border-box;
-  color: transparent;
+export const DeleteButton = styled(CgCloseO)`
+  width: 25px;
+  height: auto;
+  color: var(--color-background-primary);
   cursor: pointer;
-  font-size: 10px;
-  letter-spacing: 0.1;
-  line-height: 20px;
-  outline: none;
-  overflow: hidden;
-  padding: 0 0;
-  position: relative;
-  text-transform: uppercase;
-  transition: all 0.2s ease-in;
-  width: 40px;
-  z-index: 1;
-  margin-left: auto;
-  border-radius: 4px;
+`;
 
-  &::before,
-  &::after {
-    background-color: #fff;
-    content: '';
-    display: block;
-    height: 1px;
-    left: 0%;
-    position: absolute;
-    transform-origin: center left;
-    transition: all 0.2s ease-in;
-    width: 40px;
-    z-index: -1;
-  }
-
-  &::before {
-    top: 0;
-    transform: rotate(45deg);
-  }
-
-  &::after {
-    bottom: 0;
-    transform: rotate(-45deg);
-  }
-
-  &:hover {
-    color: #000;
-  }
-
-  &:hover::before,
-  &:hover::after {
-    height: 20px;
-    transform: rotate(0deg);
-  }
+export const ButtonsBox = styled.div`
+  display: flex;
+  justify-content: flex-end;
 `;

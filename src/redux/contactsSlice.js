@@ -1,6 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-// Define a service using a base URL and expected endpoints
 export const contactsApi = createApi({
   reducerPath: 'contacts',
   baseQuery: fetchBaseQuery({
@@ -9,26 +8,31 @@ export const contactsApi = createApi({
   tagTypes: ['Contacts'],
   endpoints: builder => ({
     getContacts: builder.query({
-      query: () => `/contacts`,
-      transformResponse: (response, meta, arg) => response.data,
-      providesTags: (result, error, id) => [{ type: 'Contacts', id }],
+      query: () => ({ url: '/contacts' }),
+      providesTags: result =>
+        result
+          ? [
+              ...result.map(({ id }) => ({ type: 'Contacts', id })),
+              { type: 'Contacts', id: 'LIST' },
+            ]
+          : [{ type: 'Contacts', id: 'LIST' }],
     }),
     addContact: builder.mutation({
-      query: contact => ({
+      query: body => ({
         url: `/contacts`,
         method: 'POST',
-        data: contact,
+        body,
       }),
-      transformResponse: (response, meta, arg) => response.data,
-      invalidatesTags: ['Contacts'],
+      transformResponse: response => response.data,
+      invalidatesTags: [{ type: 'Contacts', id: 'LIST' }],
     }),
     deleteContact: builder.mutation({
       query: id => ({
         url: `/contacts/${id}`,
         method: 'DELETE',
       }),
-      transformResponse: (response, meta, arg) => response.data,
-      invalidatesTags: ['Contacts'],
+      transformResponse: response => response.data,
+      invalidatesTags: contact => [{ type: 'Contacts', id: contact?.id }],
     }),
   }),
 });
@@ -38,56 +42,3 @@ export const {
   useAddContactMutation,
   useDeleteContactMutation,
 } = contactsApi;
-
-// import { createSlice } from '@reduxjs/toolkit';
-
-// export const contactsSlice = createSlice({
-//   name: 'contacts',
-//   initialState: {
-//     items: [],
-//     filter: '',
-//   },
-//   reducers: {
-//     addContact: (state, { payload }) => {
-//       state.items.push(payload);
-//     },
-
-//     removeContact: (state, { payload }) => {
-//       state.items = state.items.filter(({ id }) => id !== payload);
-//     },
-
-//     setFilter: (state, { payload }) => {
-//       state.filter = payload;
-//     },
-//   },
-// });
-
-// export const { addContact, removeContact, setFilter } = contactsSlice.actions;
-
-// SELECTORS
-
-// export const getFilter = state => state.contacts.filter;
-// export const getContacts = state => state.contacts.items;
-
-// =====================BACKUP VERSION=======================
-
-// import { addContact, removeContact, setFilter } from './contactsActions';
-
-// const initialState = {
-//   items: [],
-//   filter: '',
-// };
-
-// const contactsReducer = createReducer(initialState, {
-//   [addContact]: (state, action) => {
-//     state.items.push(action.payload);
-//   },
-//   [removeContact]: (state, action) => {
-//     state.items = state.items.filter(({ id }) => id !== action.payload);
-//   },
-//   [setFilter]: (state, action) => {
-//     state.filter = action.payload;
-//   },
-// });
-
-// export default contactsReducer;

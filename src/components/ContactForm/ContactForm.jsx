@@ -3,25 +3,27 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { nanoid } from 'nanoid';
 import { Form, Field, Button } from './ContactForm.styled';
-import { addContact } from 'redux/contactsSlice';
-import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from 'redux/contactsSlice';
+import {
+  useGetContactsQuery,
+  useAddContactMutation,
+} from 'redux/contactsSlice';
 
 export function ContactForm() {
-  const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [phone, setPhone] = useState('');
+
+  const contacts = useGetContactsQuery().data;
+  const [addContact] = useAddContactMutation();
 
   const nameInputIdGenerate = nanoid();
-  const numberInputIdGenerate = nanoid();
+  const phoneInputIdGenerate = nanoid();
 
   const handleChange = e => {
     const { name, value } = e.target;
     if (name === 'name') {
       setName(value);
-    } else if (name === 'number') {
-      setNumber(value);
+    } else if (name === 'phone') {
+      setPhone(value.toString());
     }
   };
 
@@ -31,10 +33,10 @@ export function ContactForm() {
       toast.error(`Contact ${name} is already exist`);
       return;
     }
-    dispatch(addContact({ name, number, id: nanoid() }));
+    addContact({ name, phone });
     toast.success(`Contact ${name} has been added`);
     setName('');
-    setNumber('');
+    setPhone('');
   };
 
   return (
@@ -50,13 +52,13 @@ export function ContactForm() {
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
       />
-      <label htmlFor={numberInputIdGenerate}>Number:</label>
+      <label htmlFor={phoneInputIdGenerate}>Number:</label>
       <Field
         type="text"
-        name="number"
-        value={number}
+        name="phone"
+        value={phone}
         onChange={handleChange}
-        id={numberInputIdGenerate}
+        id={phoneInputIdGenerate}
         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required

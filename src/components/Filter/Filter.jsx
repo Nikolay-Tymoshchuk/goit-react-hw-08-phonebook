@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
 import { Field } from './Filter.styled';
-import { setFilter, getFilter } from 'redux/contactsSlice';
+import { setFilter, getFilter } from 'redux/filterSlice';
 import { useDispatch, useSelector } from 'react-redux';
 
 export const Filter = () => {

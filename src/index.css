@@ -2,8 +2,8 @@
 
 :root {
   --color-text-primary: rgb(67, 72, 95);
-  --color-background-primary: rgba(243, 243, 243, 0.712);
-  --color-accent: rgba(2, 183, 255, 1);
+  --color-background-primary: rgb(137, 145, 148);
+  --color-accent: rgb(2, 183, 255);
   --color-border: rgba(0, 0, 0, 0.1);
 }
 
