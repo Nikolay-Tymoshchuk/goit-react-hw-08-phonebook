@@ -33,7 +33,7 @@ export const Title = styled.h1`
 
 export const InnerContainer = styled.div`
   padding: 15px;
-  box-shadow: 5px 5px 1px 3px #25282c;
+  box-shadow: 5px 5px 1px 3px #252729;
   margin-left: auto;
   margin-right: auto;
   border-radius: inherit;
