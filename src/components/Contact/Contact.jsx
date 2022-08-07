@@ -1,13 +1,10 @@
 import PropTypes from 'prop-types';
-import { useDeleteContactMutation } from 'redux/contactsSlice';
 import { Icon, ContactItem, DeleteButton, ButtonsBox } from './Contact.styled';
-import { toast } from 'react-toastify';
 import { Ring } from '@uiball/loaders';
-import { nanoid } from 'nanoid';
-import { useEffect } from 'react';
+import { useContactActions } from 'hooks/useContactActions';
 
 export const Contact = ({ options: { id, name, phone } }) => {
-  const [deleteContact, { isLoading, error }] = useDeleteContactMutation();
+  const { handleDelete, isLoading } = useContactActions(id, name);
 
   return (
     <ContactItem>
@@ -19,7 +16,7 @@ export const Contact = ({ options: { id, name, phone } }) => {
           <DeleteButton
             type="button"
             disabled={isLoading}
-            onClick={() => deleteContact(id)}
+            onClick={handleDelete}
           >
             Delete
           </DeleteButton>

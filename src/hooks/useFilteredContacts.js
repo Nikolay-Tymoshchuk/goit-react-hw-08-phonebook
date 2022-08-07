@@ -10,7 +10,6 @@ export const useFilteredContacts = () => {
   const filteredContacts = useMemo(() => {
     return (
       contacts?.filter(contact => {
-        console.log('name :>> ', contact.name);
         return contact.name.toLowerCase().includes(filter.toLowerCase());
       }) ?? []
     );
