@@ -28,6 +28,12 @@ export const DeleteButton = styled(CgCloseO)`
   height: auto;
   color: var(--color-background-primary);
   cursor: pointer;
+
+  &:hover {
+    color: var(--color-accent);
+    transform: rotateZ(90deg);
+    transition: 250ms;
+  }
 `;
 
 export const ButtonsBox = styled.div`
