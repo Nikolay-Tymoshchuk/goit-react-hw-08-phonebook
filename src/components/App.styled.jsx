@@ -12,7 +12,7 @@ export const Container = styled.div`
   margin-top: 5%;
   color: var(--color-text-primary);
   border-radius: 10px;
-  padding: 10px;
+  padding: 10px 12px 12px 10px;
   box-shadow: 0 0 20px 15px rgba(0, 0, 0, 0.7);
   background-color: var(--color-accent);
   background-size: 100%;
@@ -33,7 +33,7 @@ export const Title = styled.h1`
 
 export const InnerContainer = styled.div`
   padding: 15px;
-  box-shadow: 6px 8px 15px 0px rgb(22, 22, 22);
+  box-shadow: 5px 5px 1px 3px #25282c;
   margin-left: auto;
   margin-right: auto;
   border-radius: inherit;
