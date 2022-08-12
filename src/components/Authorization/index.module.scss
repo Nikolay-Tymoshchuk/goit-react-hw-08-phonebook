@@ -1,0 +1,15 @@
+@import '/src/variables.scss';
+
+.form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.error {
+  color: $color-error;
+}
+
+.error::before {
+  display: inline;
+  content: '⚠ ';
+}
