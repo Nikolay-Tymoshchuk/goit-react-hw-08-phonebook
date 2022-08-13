@@ -2,7 +2,7 @@ import { Contact } from '../Contact';
 import { List } from './ContactList.styled';
 import { useFilteredContacts } from 'hooks/useFilteredContacts';
 
-export const ContactList = () => {
+export default function ContactsList() {
   const { contacts, filteredContacts } = useFilteredContacts();
 
   return (
@@ -16,4 +16,4 @@ export const ContactList = () => {
       )}
     </>
   );
-};
+}

@@ -1,0 +1,28 @@
+@import 'variables';
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  padding: 2 * $spacing-major 15px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  color: $color-main-light;
+
+  position: relative;
+
+  &[aria-current='page'] {
+    background: $color-accent;
+  }
+}
+
+.navLink:hover {
+  background: $color-accent;
+}

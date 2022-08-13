@@ -1,13 +1,13 @@
-@import '/src/variables.scss';
+@import 'variables';
 
 .form {
   max-width: 400px;
   margin: 0 auto;
+  // background-color: transparent;
 }
 
 .error {
   color: $color-error;
-  width: 100%;
 }
 
 .error::before {

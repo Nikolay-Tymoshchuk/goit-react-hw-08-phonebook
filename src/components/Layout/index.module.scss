@@ -1,31 +1,31 @@
-import styled from '@emotion/styled';
-
-export const Container = styled.div`
-  background-color: var(--color-main-light);
+@import 'variables';
+.container {
+  background-color: $color-main-light;
   margin: 0 auto;
   height: 100%;
 
   @media screen and (min-width: 320px) {
-    width: var(--mobile);
+    width: $mobile;
   }
 
   @media screen and (min-width: 768px) {
-    width: var(--tablet);
+    width: $tablet;
   }
 
   @media screen and (min-width: 1360px) {
-    width: var(--desktop);
+    width: $desktop;
   }
+
   /* min-width: 400px; */
   /* height: max-content; */
-  display: flex;
+  // display: flex;
   /* flex-direction: column;
   align-items: center; */
-  align-items: flex-start;
+  // align-items: flex-start;
   /* font-size: 40; */
   /* margin-left: 2%;
   margin-top: 5%; */
-  color: var(--color-text-primary);
+  color: $color-text-primary;
   /* border-radius: 10px; */
   padding: 10px 12px 12px 10px;
   box-shadow: 0 0 20px 15px rgba(0, 0, 0, 0.7);
@@ -39,16 +39,17 @@ export const Container = styled.div`
     #866319 80%,
     #614519 100%
   );
-`;
+  padding: 0 4 * $spacing-major;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: inherit;
+}
 
-export const Title = styled.h1`
-  font-size: 40;
-`;
-
-export const InnerContainer = styled.div`
+.innerContainer {
+  // position: relative;
   width: 90%;
   height: 96%;
-  padding: 15px;
+  padding: 0 4 * $spacing-major;
   margin-left: auto;
   margin-right: auto;
   border-radius: inherit;
@@ -67,7 +68,7 @@ export const InnerContainer = styled.div`
     #3f4041 97%,
     #3f3f3f 100%
   );
-`;
+}
 // export const Container = styled.div`
 //   max-width: 960px;
 //   margin: 0 auto;
@@ -77,16 +78,14 @@ export const InnerContainer = styled.div`
 //   background-color: #d9dae0;
 // `;
 
-export const Header = styled.header`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+.headerBar {
   padding: 8px 0;
   margin-bottom: 16px;
-  border-bottom: 1px solid black;
-
-  > nav {
-    display: flex;
-  }
-`;
+  background-color: $color-header;
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  // width: 100%;
+  margin: 0 -4 * $spacing-major;
+  padding: 0 4 * $spacing-major;
+}

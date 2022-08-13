@@ -18,11 +18,6 @@ export default function AuthForm() {
     reset();
   };
 
-  // const onSubmit = data => {
-  //   console.log(data);
-  //   reset();
-  // };
-
   return (
     <form
       className={styles.form}

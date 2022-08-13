@@ -1,16 +1,26 @@
-import { Link, List } from './Navigation.styled';
+import { NavLink } from 'react-router-dom';
+import UserMenu from 'components/UserMenu';
+import styles from './index.module.scss';
 
 const Navigation = () => {
   return (
-    <nav>
-      <List>
+    <nav className={styles.navigation}>
+      <NavLink className={styles.navLink} to="/contacts">
+        Contacts
+      </NavLink>
+      <ul>
         <li>
-          <Link to="/">Home</Link>
+          <NavLink className={styles.navLink} to="/register">
+            Sign Up
+          </NavLink>
         </li>
         <li>
-          <Link to="/contacts">Contacts</Link>
+          <NavLink className={styles.navLink} to="/login">
+            Sign In
+          </NavLink>
         </li>
-      </List>
+      </ul>
+      {/* <UserMenu /> */}
     </nav>
   );
 };
