@@ -1,4 +1,7 @@
 import { useForm } from 'react-hook-form';
+import { useLoginMutation } from 'services/auth';
+import { useDispatch } from 'react-redux';
+import { signIn } from 'redux/authSlice';
 import styles from './index.module.scss';
 
 export default function AuthForm() {
@@ -9,8 +12,14 @@ export default function AuthForm() {
     reset,
   } = useForm();
 
-  const onSubmit = data => {
-    console.log(data);
+  const [login, { loading }] = useLoginMutation();
+  const dispatch = useDispatch();
+
+  const onSubmit = async ({ email, password }) => {
+    const {
+      data: { user, token },
+    } = await login({ email, password });
+    dispatch(signIn({ user, token }));
     reset();
   };
 

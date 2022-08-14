@@ -1,6 +1,10 @@
 import { useForm } from 'react-hook-form';
 import { useRef } from 'react';
+import { useSignupMutation } from 'services/auth';
+import { useDispatch } from 'react-redux';
+import { signIn } from 'redux/authSlice';
 import styles from './index.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 export default function AuthForm() {
   const {
@@ -10,11 +14,19 @@ export default function AuthForm() {
     watch,
     reset,
   } = useForm();
+  const [signup, { loading }] = useSignupMutation();
+  const dispatch = useDispatch();
 
   const password = useRef({});
   password.current = watch('password', '');
+  const navigate = useNavigate();
+
   const onSubmit = async ({ name, email, password }) => {
-    console.log(name, email, password);
+    const {
+      data: { user, token },
+    } = await signup({ name, email, password });
+    await dispatch(signIn({ user, token }));
+    navigate('/contacts');
     reset();
   };
 
@@ -66,8 +78,8 @@ export default function AuthForm() {
           {...register('password', {
             required: 'This field is required',
             minLength: {
-              value: 6,
-              message: 'Password must be at least 6 characters',
+              value: 7,
+              message: 'Password must be at least 7 characters',
             },
             maxLength: {
               value: 12,
@@ -90,19 +102,6 @@ export default function AuthForm() {
           type="password"
           {...register('password_confirm', {
             required: 'This field is required',
-            minLength: {
-              value: 6,
-              message: 'Password must be at least 6 characters',
-            },
-            maxLength: {
-              value: 12,
-              message: 'Password must be at most 12 characters',
-            },
-            pattern: {
-              value: /^(?=.*d)(?=.*[a-z])(?=.*[A-Z])(?!.*s).*$/,
-              message:
-                'Password must contain at least one digit, one lowercase and one uppercase letter',
-            },
             validate: value =>
               value === password.current || 'The passwords do not match',
           })}

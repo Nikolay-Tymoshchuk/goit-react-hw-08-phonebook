@@ -1,12 +1,9 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { nanoid } from 'nanoid';
 import { Form, Field, Button } from './ContactForm.styled';
-import {
-  useGetContactsQuery,
-  useAddContactMutation,
-} from 'redux/contactsSlice';
+import { useGetContactsQuery, useAddContactMutation } from 'services/contacts';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function ContactForm() {
   const [name, setName] = useState('');

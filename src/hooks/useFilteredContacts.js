@@ -1,4 +1,4 @@
-import { useGetContactsQuery } from 'redux/contactsSlice';
+import { useGetContactsQuery } from 'services/contacts';
 import { getFilter } from 'redux/filterSlice';
 import { useSelector } from 'react-redux';
 import { useMemo } from 'react';

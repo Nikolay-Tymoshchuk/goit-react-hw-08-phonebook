@@ -1,5 +1,5 @@
 import { toast } from 'react-toastify';
-import { useDeleteContactMutation } from 'redux/contactsSlice';
+import { useDeleteContactMutation } from 'services/contacts';
 
 export const useContactActions = (id, name) => {
   const [deleteContact, { isLoading }] = useDeleteContactMutation();

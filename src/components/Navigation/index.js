@@ -20,7 +20,7 @@ const Navigation = () => {
           </NavLink>
         </li>
       </ul>
-      {/* <UserMenu /> */}
+      <UserMenu />
     </nav>
   );
 };
