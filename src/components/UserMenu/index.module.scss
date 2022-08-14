@@ -1,8 +1,50 @@
+@import 'variables';
 .icon {
   display: inline-block;
 }
 
 .userMenu {
+  color: $color-main-light;
   display: inline-flex;
   align-items: center;
+}
+
+.avatar {
+  width: 30px !important;
+  height: 30px !important;
+  background-color: transparent !important;
+  color: #fcbf32 !important;
+  border-radius: 25%;
+  border: 2px solid #866319;
+
+  & div {
+    width: 30px !important;
+    height: 30px !important;
+    border: none;
+  }
+}
+
+.name {
+  margin: 0 2 * $spacing-major;
+}
+
+.exit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  padding: 2 * $spacing-major 3 * $spacing-major;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  color: $color-main-light;
+  border-radius: $spacing-major;
+  // border: 2px solid $color-accent;
+  position: relative;
+  background-color: $color-background-button;
+  box-sizing: border-box;
+
+  &:hover {
+    background: $color-accent;
+    color: $color-main-light;
+  }
 }

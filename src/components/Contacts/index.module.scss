@@ -1,6 +1,48 @@
+@import 'variables';
 .title {
   font-size: 38px;
   font-weight: 400;
   color: #3a3a3a;
   text-transform: uppercase;
+}
+
+.addBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  padding: 2 * $spacing-major 3 * $spacing-major;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  color: $color-main-dark;
+  border-radius: $spacing-major;
+  border: none;
+  position: relative;
+  background-color: $color-background-button-add;
+  box-sizing: border-box;
+
+  &:hover {
+    background: $color-accent;
+    color: $color-main-light;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: 100%;
+  }
+}
+
+.container {
+  display: block;
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.innerContainer {
+  display: block;
+  text-align: start;
+  @media screen and (min-width: $tablet) {
+    width: 47%;
+  }
 }

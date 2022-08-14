@@ -116,7 +116,7 @@ button[type='submit'] {
   cursor: pointer;
 }
 
-button[type='button']:active,
+// button[type='button']:active,
 button[type='submit']:active {
   transition: 0.3s all;
   transform: translateY(3px);

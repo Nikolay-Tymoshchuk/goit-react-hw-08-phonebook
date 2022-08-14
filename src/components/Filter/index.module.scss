@@ -1,0 +1,19 @@
+@import 'variables';
+
+.input {
+  width: 100%;
+  margin: 0;
+  border-radius: 5px;
+  height: 30px;
+  border: none;
+  font-size: 1em;
+
+  &:focus {
+    outline: 2px solid $color-accent;
+  }
+}
+
+.label {
+  color: $color-text-additional;
+  margin-bottom: $spacing-major;
+}

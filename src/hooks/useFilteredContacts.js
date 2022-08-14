@@ -5,6 +5,7 @@ import { useMemo } from 'react';
 
 export const useFilteredContacts = () => {
   const { data: contacts } = useGetContactsQuery();
+  console.log('contacts :>> ', contacts);
   const filter = useSelector(getFilter);
 
   const filteredContacts = useMemo(() => {

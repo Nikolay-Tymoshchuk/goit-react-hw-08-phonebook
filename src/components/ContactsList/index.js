@@ -1,5 +1,5 @@
 import { Contact } from '../Contact';
-import { List } from './ContactList.styled';
+import styles from './index.module.scss';
 import { useFilteredContacts } from 'hooks/useFilteredContacts';
 
 export default function ContactsList() {
@@ -8,11 +8,11 @@ export default function ContactsList() {
   return (
     <>
       {contacts && (
-        <List>
+        <ul className={styles.list}>
           {filteredContacts.map(contact => (
             <Contact key={contact.id} options={contact} />
           ))}
-        </List>
+        </ul>
       )}
     </>
   );

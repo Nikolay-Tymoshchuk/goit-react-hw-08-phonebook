@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  user: {},
+  user: { name: '', email: '' },
   token: '',
   isLoggedIn: false,
 };
@@ -26,6 +26,5 @@ export const authSlice = createSlice({
 
 export const { signIn, signOut } = authSlice.actions;
 
-export const getUser = state => state.auth;
-// export const getToken = state => state.auth.token;
+export const getUserName = state => state.auth.user.name;
 // export const getIsLoggedIn = state => state.auth.isLoggedIn;

@@ -2,18 +2,18 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const authAPI = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://connections-api.herokuapp.com/',
+    baseUrl: 'https://connections-api.herokuapp.com',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
       if (token) {
-        headers.set('authentication', `Bearer ${token}`);
+        headers.set('Authorization', `Bearer ${token}`);
       }
       return headers;
     },
   }),
   endpoints: builder => ({
     current: builder.query({
-      query: () => ({ url: 'users/current' }),
+      query: () => ({ url: '/users/current' }),
     }),
     signup: builder.mutation({
       query: body => ({
@@ -30,10 +30,9 @@ export const authAPI = createApi({
       }),
     }),
     logout: builder.mutation({
-      query: body => ({
+      query: () => ({
         url: '/users/logout',
         method: 'POST',
-        body,
       }),
     }),
   }),

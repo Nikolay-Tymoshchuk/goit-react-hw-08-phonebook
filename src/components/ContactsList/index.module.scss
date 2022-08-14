@@ -1,6 +1,6 @@
-import styled from '@emotion/styled';
+@import 'variables';
 
-export const List = styled.ul`
+.list {
   list-style: none;
   margin: 0;
   margin-left: -10px;
@@ -9,12 +9,18 @@ export const List = styled.ul`
   flex-direction: column;
   width: 90%;
   row-gap: 20px;
-  height: 200px;
+  max-height: 75vh;
   padding: 10px;
   overflow-y: scroll;
+  border-radius: 2 * $spacing-major;
+  box-shadow: inset 0px 0px 16px 0px rgba(0, 0, 0, 0.45);
+
+  @media screen and (min-width: $tablet) {
+    width: 47%;
+  }
 
   &::-webkit-scrollbar {
     width: 0px;
     background: transparent;
   }
-`;
+}
