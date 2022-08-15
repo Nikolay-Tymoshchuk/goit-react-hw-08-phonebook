@@ -5,6 +5,8 @@ import { useDispatch } from 'react-redux';
 import { signIn } from 'redux/authSlice';
 import styles from './index.module.scss';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { Pulsar } from '@uiball/loaders';
 
 export default function AuthForm() {
   const {
@@ -14,7 +16,7 @@ export default function AuthForm() {
     watch,
     reset,
   } = useForm();
-  const [signup] = useSignupMutation();
+  const [signup, { isLoading }] = useSignupMutation();
   const dispatch = useDispatch();
 
   const password = useRef({});
@@ -22,12 +24,16 @@ export default function AuthForm() {
   const navigate = useNavigate();
 
   const onSubmit = async ({ name, email, password }) => {
-    const {
-      data: { user, token },
-    } = await signup({ name, email, password });
-    await dispatch(signIn({ user, token }));
-    navigate('/contacts');
-    reset();
+    try {
+      const {
+        data: { user, token },
+      } = await signup({ name, email, password });
+      await dispatch(signIn({ user, token }));
+      reset();
+      navigate('/contacts');
+    } catch {
+      toast.error('Something went wrong. Maybe this email is already in use');
+    }
   };
 
   return (
@@ -110,9 +116,10 @@ export default function AuthForm() {
           <p className={styles.error}>{errors.password_confirm.message}</p>
         )}
       </label>
-
+      {isLoading && <Pulsar color="#5c6386" />}
       <button type="submit" onClick={handleSubmit(onSubmit)}>
-        Submit
+        <span>Submit</span>
+        <i></i>
       </button>
     </form>
   );

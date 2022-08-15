@@ -7,29 +7,45 @@
   border-radius: 10px;
   position: relative;
   display: grid;
-  grid-template-columns: 24px 40% 37% 8%;
-  column-gap: 5px;
+  grid-template-columns: 15px 38% 45% 5%;
+  column-gap: 2px;
   align-items: center;
   font-size: $font-size-major-mobile;
   font-weight: 400;
   box-shadow: 3px 3px 6px 0px rgba(34, 34, 34, 0.9),
     -3px -3px 6px 0px rgba(252, 251, 251, 0.9);
   background-color: $color-background-contact;
+  transition: 100ms linear;
 
   & > span:nth-child(2) {
     text-align: start;
     margin-left: $spacing-major;
   }
+
+  @media screen and (min-width: $tablet) {
+    grid-template-columns: 24px 40% 37% 8%;
+    font-size: $font-size-major;
+    column-gap: 5px;
+  }
+
+  &:hover {
+    transform: translateY(-5%) rotateX(15deg);
+    filter: brightness(120%);
+  }
 }
 
 .icon {
-  width: 24px;
+  width: 20px;
   height: auto;
   color: $color-accent;
+
+  @media screen and (min-width: $tablet) {
+    width: 24px;
+  }
 }
 
 .close {
-  width: 25px;
+  width: 15px;
   height: auto;
   color: $color-accent;
   cursor: pointer;
@@ -38,6 +54,10 @@
     color: $color-additional;
     transform: rotateZ(90deg);
     transition: 250ms;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: 25px;
   }
 }
 

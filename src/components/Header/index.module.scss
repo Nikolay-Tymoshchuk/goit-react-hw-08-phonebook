@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: center;
   text-transform: uppercase;
-  padding: 2 * $spacing-major 15px;
+  padding: 2 * $spacing-major 3 * $spacing-major;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   color: $color-main-light;
@@ -24,20 +24,20 @@
   }
 }
 
-.navLink:hover {
+.navLink .navLink:hover {
   background: $color-accent;
 }
 
-.subNavigation {
-  display: flex;
-  justify-content: space-between;
-  // width: 100%;
+// .subNavigation {
+//   display: flex;
+//   justify-content: space-between;
+//   // width: 100%;
 
-  & > li:first-child {
-    display: inline-flex;
-    margin-right: auto;
-  }
-}
+//   & > li:first-child {
+//     display: inline-flex;
+//     margin-right: auto;
+//   }
+// }
 
 .headerBar {
   padding: 8px 0;
@@ -47,4 +47,18 @@
   padding: 0 4 * $spacing-major;
   display: flex;
   justify-content: space-between;
+}
+
+// .home {
+//   display: none;
+// }
+
+[aria-label='primary-navigation'] a {
+  padding-left: $spacing-major;
+  padding-right: $spacing-major;
+
+  @media screen and (min-width: 360px) {
+    padding-left: 3 * $spacing-major;
+    padding-right: 3 * $spacing-major;
+  }
 }

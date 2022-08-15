@@ -73,6 +73,7 @@ form {
   padding: 2 * $spacing-major;
   background-color: $color-background-form;
   font-weight: $font-weight-major;
+  padding-bottom: 4 * $spacing-major;
 }
 
 input {
@@ -83,7 +84,10 @@ input {
   border: 1px solid white;
   padding: 10px 15px;
   margin-bottom: 10px;
-  font-size: $font-size-major-mobile;
+  font-size: $font-size-major;
+  &:focus {
+    outline: 2px solid $color-accent;
+  }
 }
 
 label {
@@ -93,7 +97,7 @@ label {
   margin-bottom: 13px;
   margin-top: 20px;
   color: $color-text-primary;
-  font-size: $font-size-major-mobile;
+  font-size: $font-size-major;
 
   &:first-child {
     margin-top: 0;
@@ -107,26 +111,84 @@ label {
   }
 }
 
+@mixin before-after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 5px;
+  border: 1px solid #fff;
+  background: $color-accent;
+  transform: translateX(-50%);
+  transition: 0.5s;
+}
+
 button[type='submit'] {
   @include button-hover($color-accent);
   color: white;
   text-transform: uppercase;
-  border: none;
+  border: 1px solid rgba(0, 0, 0, 0);
   margin-top: 4 * $spacing-major;
+
   width: 100%;
   border-radius: $spacing-major;
-  padding: 20px;
-  font-size: 16px;
+  padding: 4 * $spacing-major;
+  font-size: $font-size-major-mobile;
   font-weight: 100;
-  letter-spacing: 0.5em;
+  letter-spacing: 0.2em;
   cursor: pointer;
+  position: relative;
+  transition: 0.5s;
+
+  @media screen and (min-width: 400px) {
+    font-size: $font-size-major;
+    width: 90%;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: 80%;
+  }
+
+  &:hover {
+    border-color: #fff;
+    outline: none;
+    letter-spacing: 0.5em;
+    box-shadow: 0 0 20px #fff;
+  }
+
+  & i {
+    position: absolute;
+    inset: 0;
+    display: block;
+
+    &:before {
+      @include before-after;
+      left: 80%;
+      top: -4px;
+    }
+
+    &:after {
+      @include before-after;
+      left: 20%;
+      bottom: -4px;
+    }
+  }
+
+  &:hover i:before {
+    background: $color-accent;
+    left: 20%;
+    transform: scaleX(2);
+  }
+
+  &:hover i:after {
+    background: $color-accent;
+    left: 80%;
+    transform: scaleX(2);
+  }
 }
 
-// button[type='button']:active,
 button[type='submit']:active {
   transition: 0.3s all;
   transform: translateY(3px);
-  // border: 1px solid transparent;
   opacity: 0.8;
 }
 
@@ -135,6 +197,6 @@ button:disabled {
 }
 
 button[type='button']:hover {
-  transition: 0.3s all;
+  transition: 0.5s all;
 }
 // =========================Form END========================
