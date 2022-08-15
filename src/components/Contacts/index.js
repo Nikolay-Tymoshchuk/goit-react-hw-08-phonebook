@@ -33,7 +33,9 @@ export default function Contacts() {
           </Suspense>
           <Filter />
         </div>
-        <ContactsList />
+        <Suspense fallback={<Pulsar color="#02b7ff" />}>
+          <ContactsList />
+        </Suspense>
       </div>
     </div>
   );
