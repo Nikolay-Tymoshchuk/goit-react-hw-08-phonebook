@@ -38,7 +38,7 @@ function ContactForm() {
   };
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={handleSubmit} autoComplete="off">
       <label className={styles.label} htmlFor={nameInputIdGenerate}>
         Name:
       </label>
