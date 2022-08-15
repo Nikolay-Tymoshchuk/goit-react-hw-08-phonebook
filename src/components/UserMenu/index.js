@@ -2,6 +2,7 @@ import { getUserName, signOut } from 'redux/authSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useLogoutMutation, authAPI } from 'services/auth';
+import { contactsAPI } from 'services/contacts';
 import styles from './index.module.scss';
 import Avatar from 'react-avatar';
 
@@ -14,7 +15,7 @@ export default function UserMenu() {
     try {
       await logout();
       await dispatch(signOut());
-      await dispatch(authAPI.util.resetApiState());
+      await dispatch(contactsAPI.util.resetApiState());
     } catch (error) {
       console.log(error);
     } finally {

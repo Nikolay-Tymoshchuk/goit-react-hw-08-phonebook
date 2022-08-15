@@ -8,6 +8,9 @@ const Navigation = () => {
   const isLoggedIn = useSelector(getIsLoggedIn);
   return (
     <nav className={styles.navigation}>
+      <NavLink className={styles.navLink} to="/">
+        Home
+      </NavLink>
       {isLoggedIn ? (
         <>
           <NavLink className={styles.navLink} to="/contacts">
