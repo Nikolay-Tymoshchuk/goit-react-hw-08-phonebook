@@ -15,6 +15,7 @@
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   color: $color-main-light;
+  border: 2px solid transparent;
 
   position: relative;
 
@@ -25,4 +26,25 @@
 
 .navLink:hover {
   background: $color-accent;
+}
+
+.subNavigation {
+  display: flex;
+  justify-content: space-between;
+  // width: 100%;
+
+  & > li:first-child {
+    display: inline-flex;
+    margin-right: auto;
+  }
+}
+
+.headerBar {
+  padding: 8px 0;
+  margin-bottom: 16px;
+  background-color: $color-header;
+  margin: 0 -4 * $spacing-major;
+  padding: 0 4 * $spacing-major;
+  display: flex;
+  justify-content: space-between;
 }

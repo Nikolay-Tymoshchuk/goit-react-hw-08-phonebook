@@ -1,7 +1,7 @@
 import { lazy } from 'react';
 
 export const ContactsBook = lazy(
-  () => import('../components/Contacts') /* webpackChunkName: "contacts_book" */
+  () => import('../pages/Contacts') /* webpackChunkName: "contacts_book" */
 );
 export const AddContactsForm = lazy(
   () =>
@@ -16,14 +16,17 @@ export const ContactsList = lazy(
 export const AuthorizationForm = lazy(
   () =>
     import(
-      '../components/AuthorizationForm'
+      '../pages/AuthorizationForm'
     ) /* webpackChunkName: "authorization_form" */
 );
 export const RegistrationForm = lazy(
   () =>
     import(
-      '../components/RegistrationForm'
+      '../pages/RegistrationForm'
     ) /* webpackChunkName: "registration_form" */
+);
+export const Home = lazy(
+  () => import('../pages/Greeting') /* webpackChunkName: "greeting_page" */
 );
 // export const ErrorPlug = lazy(
 //   () => import('../components/error-plug') /* webpackChunkName: "404page" */

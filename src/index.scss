@@ -41,6 +41,12 @@ img {
   object-fit: cover;
 }
 
+h1,
+h2 {
+  margin-top: 0;
+  margin-bottom: 4 * $spacing-major;
+}
+
 ul {
   list-style: none;
   padding: 0;

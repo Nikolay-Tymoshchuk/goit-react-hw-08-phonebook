@@ -1,32 +1,10 @@
 @import 'variables';
 .container {
+  position: relative;
   background-color: $color-main-light;
   margin: 0 auto;
   height: 100%;
-
-  @media screen and (min-width: 320px) {
-    width: $mobile;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: $tablet;
-  }
-
-  @media screen and (min-width: 1360px) {
-    width: $desktop;
-  }
-
-  /* min-width: 400px; */
-  /* height: max-content; */
-  // display: flex;
-  /* flex-direction: column;
-  align-items: center; */
-  // align-items: flex-start;
-  /* font-size: 40; */
-  /* margin-left: 2%;
-  margin-top: 5%; */
   color: $color-text-primary;
-  /* border-radius: 10px; */
   padding: 10px 12px 12px 10px;
   box-shadow: 0 0 20px 15px rgba(0, 0, 0, 0.7);
   background-size: 100%;
@@ -43,31 +21,30 @@
   margin-left: auto;
   margin-right: auto;
   border-radius: inherit;
+
+  @media screen and (min-width: 320px) {
+    width: $mobile;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: $tablet;
+  }
+
+  @media screen and (min-width: 1360px) {
+    width: $desktop;
+  }
 }
 
 .innerContainer {
   // position: relative;
-  width: 90%;
-  height: 96%;
-  padding: 0 4 * $spacing-major;
+  // width: 90%;
+  // height: 96%;
+  padding: 4 * $spacing-major;
   margin-left: auto;
   margin-right: auto;
   border-radius: inherit;
-  background-image: linear-gradient(
-    90deg,
-    #e7e7e7 0%,
-    #c4c4c7 25%,
-    #eeeeee 50%,
-    #f8f8f8 55%,
-    #3a3a3a 88%,
-    #d6d6d6 89%,
-    #d8d8d8 90%,
-    #a0a2a3 92%,
-    #9b9b9b 93%,
-    #252525 96%,
-    #3f4041 97%,
-    #3f3f3f 100%
-  );
+  height: 100%;
+  background-image: linear-gradient(90deg, #ffffff34, #ffffff34);
 }
 // export const Container = styled.div`
 //   max-width: 960px;
@@ -77,15 +54,3 @@
 //   box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
 //   background-color: #d9dae0;
 // `;
-
-.headerBar {
-  padding: 8px 0;
-  margin-bottom: 16px;
-  background-color: $color-header;
-  // position: absolute;
-  // top: 0;
-  // left: 0;
-  // width: 100%;
-  margin: 0 -4 * $spacing-major;
-  padding: 0 4 * $spacing-major;
-}

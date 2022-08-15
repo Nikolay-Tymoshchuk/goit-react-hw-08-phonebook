@@ -22,7 +22,7 @@ export default function Contacts() {
 
   return (
     <div>
-      <h1 className={styles.title}>Contacts Book</h1>
+      <h2 className={styles.title}>Contact Book</h2>
       <div className={styles.container}>
         <div className={styles.innerContainer}>
           <button className={styles.addBtn} onClick={e => handleClick(e)}>

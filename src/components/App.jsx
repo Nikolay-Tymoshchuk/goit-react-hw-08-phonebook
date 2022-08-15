@@ -7,24 +7,29 @@ import * as lazyRoutes from '../helpers/lazyRoutes';
 import PrivateRoute from 'helpers/PrivateRoute';
 import PublicRoute from 'helpers/PublicRoute';
 
-const { ContactsBook, AddContactsForm, AuthorizationForm, RegistrationForm } =
-  lazyRoutes;
+const {
+  ContactsBook,
+  AddContactsForm,
+  AuthorizationForm,
+  RegistrationForm,
+  Home,
+} = lazyRoutes;
 
-console.log('object :>> ', ContactsBook);
 export function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
           <Route element={<PrivateRoute />}>
             <Route path="contacts" element={<ContactsBook />}>
               <Route path="add" element={<AddContactsForm />} />
             </Route>
           </Route>
-          <Route element={<PublicRoute restricted />}>
+          <Route element={<PublicRoute />}>
             <Route path="/register" element={<RegistrationForm />} />
           </Route>
-          <Route element={<PublicRoute restricted />}>
+          <Route element={<PublicRoute />}>
             <Route path="/login" element={<AuthorizationForm />} />
           </Route>
         </Route>

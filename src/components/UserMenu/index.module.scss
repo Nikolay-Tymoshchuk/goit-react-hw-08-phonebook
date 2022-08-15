@@ -34,11 +34,12 @@
   justify-content: center;
   text-transform: uppercase;
   padding: 2 * $spacing-major 3 * $spacing-major;
+  line-height: 1.6;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   color: $color-main-light;
   border-radius: $spacing-major;
-  // border: 2px solid $color-accent;
+  border: 2px solid $color-accent;
   position: relative;
   background-color: $color-background-button;
   box-sizing: border-box;

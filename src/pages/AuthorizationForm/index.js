@@ -14,6 +14,7 @@ export default function AuthForm() {
   } = useForm();
 
   const [login, { loading }] = useLoginMutation();
+  console.log(loading);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

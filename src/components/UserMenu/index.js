@@ -1,7 +1,7 @@
 import { getUserName, signOut } from 'redux/authSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useLogoutMutation, authAPI } from 'services/auth';
+import { useLogoutMutation } from 'services/auth';
 import { contactsAPI } from 'services/contacts';
 import styles from './index.module.scss';
 import Avatar from 'react-avatar';
