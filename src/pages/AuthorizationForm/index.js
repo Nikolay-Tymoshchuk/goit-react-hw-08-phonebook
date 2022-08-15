@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { signIn } from 'redux/authSlice';
 import { useNavigate } from 'react-router-dom';
 import styles from './index.module.scss';
+import { Pulsar } from '@uiball/loaders';
 
 export default function AuthForm() {
   const {
@@ -13,8 +14,8 @@ export default function AuthForm() {
     reset,
   } = useForm();
 
-  const [login, { loading }] = useLoginMutation();
-  console.log(loading);
+  const [login, { isLoading }] = useLoginMutation();
+  console.log(isLoading);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -76,7 +77,7 @@ export default function AuthForm() {
           <p className={styles.error}>{errors.password.message}</p>
         )}
       </label>
-
+      {isLoading && <Pulsar />}
       <button type="submit" onClick={handleSubmit(onSubmit)}>
         Submit
       </button>

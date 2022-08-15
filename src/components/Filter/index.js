@@ -1,7 +1,8 @@
+import { setFilter } from 'redux/filterSlice';
+import { getFilter } from 'redux/selectors';
+import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import styles from './index.module.scss';
-import { setFilter, getFilter } from 'redux/filterSlice';
-import { useDispatch, useSelector } from 'react-redux';
 
 export const Filter = () => {
   const filter = useSelector(getFilter);

@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
-import styles from './index.module.scss';
 import { Ring } from '@uiball/loaders';
 import { useContactActions } from 'hooks/useContactActions';
 import { IoMdContact } from 'react-icons/io';
 import { CgCloseO } from 'react-icons/cg';
+import PropTypes from 'prop-types';
+import styles from './index.module.scss';
 
 export const Contact = ({ options: { id, name, number } }) => {
   const { handleDelete, isLoading } = useContactActions(id, name);

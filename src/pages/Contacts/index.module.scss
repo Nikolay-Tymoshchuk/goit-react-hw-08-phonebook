@@ -46,5 +46,16 @@
   margin-bottom: 4 * $spacing-major;
   @media screen and (min-width: $tablet) {
     width: 47%;
+    margin-bottom: 0;
+  }
+}
+
+.listPlace {
+  @media screen and (min-width: $tablet) {
+    width: 47%;
+    margin-bottom: 0;
+  }
+  & > p {
+    text-align: start;
   }
 }

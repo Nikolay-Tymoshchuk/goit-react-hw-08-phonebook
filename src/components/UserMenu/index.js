@@ -1,4 +1,5 @@
-import { getUserName, signOut } from 'redux/authSlice';
+import { signOut } from 'redux/authSlice';
+import { getUserName } from 'redux/selectors';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useLogoutMutation } from 'services/auth';

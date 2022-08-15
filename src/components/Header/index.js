@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import UserMenu from 'components/UserMenu';
 import styles from './index.module.scss';
-import { getIsLoggedIn } from 'redux/authSlice';
+import { getIsLoggedIn } from 'redux/selectors';
 import { useSelector } from 'react-redux';
 
 const Header = () => {

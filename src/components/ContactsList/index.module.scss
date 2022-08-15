@@ -2,8 +2,6 @@
 
 .list {
   list-style: none;
-  margin-bottom: 4 * $spacing-major;
-  margin-right: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -15,9 +13,7 @@
   box-shadow: inset 0px 0px 16px 0px rgba(0, 0, 0, 0.45);
 
   @media screen and (min-width: $tablet) {
-    width: 47%;
-    max-height: 75vh;
-    margin-bottom: 0;
+    max-height: 78vh;
   }
 
   &::-webkit-scrollbar {
