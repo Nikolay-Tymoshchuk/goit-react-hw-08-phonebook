@@ -1,0 +1,55 @@
+@import 'variables';
+
+.item {
+  padding: 4px;
+  padding-right: 0;
+  border: 1px solid $color-border;
+  border-radius: 10px;
+  position: relative;
+  display: grid;
+  grid-template-columns: 24px 40% 37% 8%;
+  column-gap: 5px;
+  align-items: center;
+  font-size: $font-size-major-mobile;
+  font-weight: 400;
+  box-shadow: 3px 3px 6px 0px rgba(34, 34, 34, 0.9),
+    -3px -3px 6px 0px rgba(252, 251, 251, 0.9);
+  background-color: $color-background-contact;
+  // background-image: linear-gradient(
+  //   90deg,
+  //   rgba(231, 231, 231, 0.7) 0%,
+  //   rgba(196, 196, 199, 0.7) 25%,
+  //   rgba(238, 238, 238, 0.7) 50%,
+  //   rgba(248, 248, 248, 0.7) 55%,
+  //   rgba(123, 125, 139, 0.7) 85%,
+  //   rgba(160, 162, 163, 0.7) 100%
+  // );
+
+  & > span:nth-child(2) {
+    text-align: start;
+  }
+}
+
+.icon {
+  width: 24px;
+  height: auto;
+  color: $color-accent;
+}
+
+.close {
+  width: 25px;
+  height: auto;
+  color: $color-accent;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-additional;
+    transform: rotateZ(90deg);
+    transition: 250ms;
+  }
+}
+
+.buttonsBox {
+  display: flex;
+  justify-content: flex-end;
+}

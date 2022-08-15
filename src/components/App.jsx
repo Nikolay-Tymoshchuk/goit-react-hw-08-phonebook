@@ -1,15 +1,11 @@
 import { ToastContainer } from 'react-toastify';
-// import { ContactForm } from './ContactsForm';
-import { ContactList } from './ContactsList';
-import { Filter } from './Filter';
 import { Route, Routes } from 'react-router-dom';
 import toastOptions from 'helpers/toastOptions';
 import 'react-toastify/dist/ReactToastify.css';
 import Layout from './Layout';
-import AuthForm from './AuthorizationForm';
-import RegForm from './RegistrationForm';
-import UserMenu from './UserMenu';
 import * as lazyRoutes from '../helpers/lazyRoutes';
+import PrivateRoute from 'helpers/PrivateRoute';
+import PublicRoute from 'helpers/PublicRoute';
 
 const { ContactsBook, AddContactsForm, AuthorizationForm, RegistrationForm } =
   lazyRoutes;
@@ -20,18 +16,20 @@ export function App() {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="contacts" element={<ContactsBook />}>
-            <Route path="add" element={<AddContactsForm />} />
+          <Route element={<PrivateRoute />}>
+            <Route path="contacts" element={<ContactsBook />}>
+              <Route path="add" element={<AddContactsForm />} />
+            </Route>
           </Route>
-          <Route path="/register" element={<RegistrationForm />} />
-          <Route path="/login" element={<AuthorizationForm />} />
+          <Route element={<PublicRoute restricted />}>
+            <Route path="/register" element={<RegistrationForm />} />
+          </Route>
+          <Route element={<PublicRoute restricted />}>
+            <Route path="/login" element={<AuthorizationForm />} />
+          </Route>
         </Route>
       </Routes>
       <ToastContainer {...toastOptions} />
-      {/* <Title>Phonebook</Title>
-          <Title>Contacts</Title> */}
-      {/* <Filter />
-      <ContactList /> */}
     </>
   );
 }

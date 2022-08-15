@@ -14,7 +14,7 @@ export default function AuthForm() {
     watch,
     reset,
   } = useForm();
-  const [signup, { loading }] = useSignupMutation();
+  const [signup] = useSignupMutation();
   const dispatch = useDispatch();
 
   const password = useRef({});

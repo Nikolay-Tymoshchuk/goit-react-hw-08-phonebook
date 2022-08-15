@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useLoginMutation } from 'services/auth';
 import { useDispatch } from 'react-redux';
 import { signIn } from 'redux/authSlice';
+import { useNavigate } from 'react-router-dom';
 import styles from './index.module.scss';
 
 export default function AuthForm() {
@@ -14,12 +15,14 @@ export default function AuthForm() {
 
   const [login, { loading }] = useLoginMutation();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onSubmit = async ({ email, password }) => {
     const {
       data: { user, token },
     } = await login({ email, password });
-    dispatch(signIn({ user, token }));
+    await dispatch(signIn({ user, token }));
+    navigate('/contacts');
     reset();
   };
 
