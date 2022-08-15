@@ -5,11 +5,24 @@ import { Filter } from 'components/Filter';
 import { Suspense } from 'react';
 import { useGetContactsQuery } from 'services/contacts';
 import styles from './index.module.scss';
+import { useEffect, useState } from 'react';
 
 export default function Contacts() {
+  const [isContacts, setIsContacts] = useState(false);
   const navigate = useNavigate();
   const { data: contacts } = useGetContactsQuery();
-  // console.log('contacts :>> ', contacts);
+
+  useEffect(() => {
+    const getData = async () => {
+      const contactsCount = await contacts;
+      if (contactsCount?.length > 0) {
+        setIsContacts(true);
+        return;
+      }
+      setIsContacts(false);
+    };
+    getData();
+  }, [contacts, isContacts]);
 
   const handleClick = e => {
     const url = window.location.href;
@@ -37,7 +50,7 @@ export default function Contacts() {
           <Filter />
         </div>
         <div className={styles.listPlace}>
-          {contacts?.length > 0 ? (
+          {isContacts ? (
             <Suspense fallback={<Pulsar color="#5c6386" />}>
               <ContactsList />
             </Suspense>
