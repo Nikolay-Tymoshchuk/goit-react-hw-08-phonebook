@@ -36,9 +36,7 @@
 }
 
 .innerContainer {
-  // position: relative;
-  // width: 90%;
-  // height: 96%;
+  min-height: 95vh;
   padding: 4 * $spacing-major;
   margin-left: auto;
   margin-right: auto;
