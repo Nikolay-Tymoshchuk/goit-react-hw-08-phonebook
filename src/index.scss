@@ -74,6 +74,7 @@ form {
   background-color: $color-background-form;
   font-weight: $font-weight-major;
   padding-bottom: 4 * $spacing-major;
+  text-align: center;
 }
 
 input {
@@ -198,5 +199,14 @@ button:disabled {
 
 button[type='button']:hover {
   transition: 0.5s all;
+}
+
+.error {
+  color: $color-error;
+}
+
+.error::before {
+  display: inline;
+  content: '⚠ ';
 }
 // =========================Form END========================

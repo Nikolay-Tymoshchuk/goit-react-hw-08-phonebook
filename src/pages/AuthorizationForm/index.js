@@ -3,7 +3,6 @@ import { useLoginMutation } from 'services/auth';
 import { useDispatch } from 'react-redux';
 import { signIn } from 'redux/authSlice';
 import { useNavigate } from 'react-router-dom';
-import styles from './index.module.scss';
 import { Pulsar } from '@uiball/loaders';
 import { toast } from 'react-toastify';
 
@@ -25,7 +24,7 @@ export default function AuthForm() {
       const {
         data: { user, token },
       } = await login({ email, password });
-      await dispatch(signIn({ user, token }));
+      dispatch(signIn({ user, token }));
       reset();
       navigate('/contacts');
     } catch (error) {
@@ -36,11 +35,7 @@ export default function AuthForm() {
   };
 
   return (
-    <form
-      className={styles.form}
-      onSubmit={e => e.preventDefault()}
-      autoComplete="off"
-    >
+    <form onSubmit={e => e.preventDefault()} autoComplete="off">
       <label>
         Email*
         <input
@@ -56,7 +51,7 @@ export default function AuthForm() {
             },
           })}
         />
-        {errors.email && <p className={styles.error}>{errors.email.message}</p>}
+        {errors.email && <p className="error">{errors.email.message}</p>}
       </label>
 
       <label>
@@ -80,9 +75,7 @@ export default function AuthForm() {
             },
           })}
         />
-        {errors.password && (
-          <p className={styles.error}>{errors.password.message}</p>
-        )}
+        {errors.password && <p className="error">{errors.password.message}</p>}
       </label>
       {isLoading && <Pulsar color="#5c6386" />}
       <button

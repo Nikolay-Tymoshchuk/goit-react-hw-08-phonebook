@@ -3,7 +3,6 @@ import { useRef } from 'react';
 import { useSignupMutation } from 'services/auth';
 import { useDispatch } from 'react-redux';
 import { signIn } from 'redux/authSlice';
-import styles from './index.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Pulsar } from '@uiball/loaders';
@@ -37,11 +36,7 @@ export default function AuthForm() {
   };
 
   return (
-    <form
-      className={styles.form}
-      onSubmit={e => e.preventDefault()}
-      autoComplete="off"
-    >
+    <form onSubmit={e => e.preventDefault()} autoComplete="off">
       <label>
         Name*
         <input
@@ -56,7 +51,7 @@ export default function AuthForm() {
             },
           })}
         />
-        {errors.name && <p className={styles.error}>{errors.name.message}</p>}
+        {errors.name && <p className="error">{errors.name.message}</p>}
       </label>
 
       <label>
@@ -74,7 +69,7 @@ export default function AuthForm() {
             },
           })}
         />
-        {errors.email && <p className={styles.error}>{errors.email.message}</p>}
+        {errors.email && <p className="error">{errors.email.message}</p>}
       </label>
 
       <label>
@@ -98,9 +93,7 @@ export default function AuthForm() {
             },
           })}
         />
-        {errors.password && (
-          <p className={styles.error}>{errors.password.message}</p>
-        )}
+        {errors.password && <p className="error">{errors.password.message}</p>}
       </label>
       <label>
         Confirm password*
@@ -113,7 +106,7 @@ export default function AuthForm() {
           })}
         />
         {errors.password_confirm && (
-          <p className={styles.error}>{errors.password_confirm.message}</p>
+          <p className="error">{errors.password_confirm.message}</p>
         )}
       </label>
       {isLoading && <Pulsar color="#5c6386" />}
