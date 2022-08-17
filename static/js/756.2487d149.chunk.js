@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkgoit_react_hw_08_phonebook=self.webpackChunkgoit_react_hw_08_phonebook||[]).push([[756],{9756:function(e,r,c){c.r(r),c.d(r,{default:function(){return n}});c(2791);var o=c.p+"static/media/wonderW.d9810f0ce246c5ac20a780cb72c643a2.svg",t=c(184);function n(){return(0,t.jsx)("div",{children:(0,t.jsx)("img",{src:o,alt:"Wonder Worker customed error page"})})}}}]);
-//# sourceMappingURL=756.2487d149.chunk.js.map
