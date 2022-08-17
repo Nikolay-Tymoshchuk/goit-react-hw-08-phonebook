@@ -1,11 +1,11 @@
 import { ToastContainer } from 'react-toastify';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import toastOptions from 'helpers/toastOptions';
 import 'react-toastify/dist/ReactToastify.css';
 import Layout from './Layout';
 import * as lazyRoutes from '../helpers/lazyRoutes';
 import PrivateRoute from 'helpers/PrivateRoute';
-import PublicRoute from 'helpers/PublicRoute';
+import RestrictedRoute from 'helpers/RestrictedRoute';
 
 const {
   ContactsBook,
@@ -26,12 +26,13 @@ export function App() {
               <Route path="add" element={<AddContactsForm />} />
             </Route>
           </Route>
-          <Route element={<PublicRoute />}>
+          <Route element={<RestrictedRoute />}>
             <Route path="/register" element={<RegistrationForm />} />
           </Route>
-          <Route element={<PublicRoute />}>
+          <Route element={<RestrictedRoute />}>
             <Route path="/login" element={<AuthorizationForm />} />
           </Route>
+          <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
       <ToastContainer {...toastOptions} />
