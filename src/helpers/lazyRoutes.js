@@ -28,3 +28,6 @@ export const RegistrationForm = lazy(
 export const Home = lazy(
   () => import('../pages/Greeting') /* webpackChunkName: "greeting_page" */
 );
+export const ErrorPlug = lazy(
+  () => import('../pages/ErrorPlug') /* webpackChunkName: "404page" */
+);

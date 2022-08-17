@@ -1,5 +1,5 @@
 import { ToastContainer } from 'react-toastify';
-import { Route, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import toastOptions from 'helpers/toastOptions';
 import 'react-toastify/dist/ReactToastify.css';
 import Layout from './Layout';
@@ -13,6 +13,7 @@ const {
   AuthorizationForm,
   RegistrationForm,
   Home,
+  ErrorPlug,
 } = lazyRoutes;
 
 export function App() {
@@ -32,7 +33,7 @@ export function App() {
           <Route element={<RestrictedRoute />}>
             <Route path="/login" element={<AuthorizationForm />} />
           </Route>
-          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="*" element={<ErrorPlug />} />
         </Route>
       </Routes>
       <ToastContainer {...toastOptions} />
