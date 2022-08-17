@@ -19,7 +19,7 @@ function ContactForm() {
   const onSubmit = async ({ name, number }) => {
     try {
       const response = await contacts.find(
-        item => item.name.toLowerCase() === name.toLowerCase()
+        item => item?.name.toLowerCase() === name.toLowerCase()
       );
       if (response) {
         toast.error(`Contact ${name} is already exist`);
