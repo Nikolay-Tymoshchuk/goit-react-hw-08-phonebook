@@ -1,9 +1,11 @@
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import { useGetContactsQuery, useAddContactMutation } from 'services/contacts';
+import { useAddContactMutation } from 'services/contacts';
+import { useFilteredContacts } from 'hooks/useFilteredContacts';
 import 'react-toastify/dist/ReactToastify.css';
 import styles from './index.module.scss';
 import { Pulsar } from '@uiball/loaders';
+import { useState } from 'react';
 
 function ContactForm() {
   const {
@@ -12,13 +14,15 @@ function ContactForm() {
     formState: { errors },
     reset,
   } = useForm();
+  const [isLoadData, setIsLoadData] = useState(false);
+  const { filteredContacts: contacts } = useFilteredContacts();
 
-  const { data: contacts, isFetching } = useGetContactsQuery();
-  const [addContact, { isLoading }] = useAddContactMutation();
+  const [addContact] = useAddContactMutation();
 
   const onSubmit = async ({ name, number }) => {
     try {
-      const response = await contacts.find(
+      setIsLoadData(true);
+      const response = await contacts?.data?.find(
         item => item?.name.toLowerCase() === name.toLowerCase()
       );
       if (response) {
@@ -31,6 +35,8 @@ function ContactForm() {
     } catch (error) {
       toast.error('Oops! Something went wrong');
       console.log('error :>> ', error);
+    } finally {
+      setIsLoadData(false);
     }
   };
 
@@ -74,11 +80,11 @@ function ContactForm() {
         />
         {errors.number && <p className="error">{errors.number.message}</p>}
       </label>
-      {(isLoading || isFetching) && <Pulsar color="#5c6386" />}
+      {isLoadData && <Pulsar color="#5c6386" />}
       <button
         type="submit"
         onClick={handleSubmit(onSubmit)}
-        disabled={isLoading || isFetching}
+        disabled={isLoadData}
       >
         <span>Add contact</span>
         <i></i>
