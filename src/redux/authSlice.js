@@ -10,12 +10,17 @@ export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
+    // ==============================> Set user data
+
     signIn: (state, { payload: { user, token } }) => {
       state.user.name = user.name;
       state.user.email = user.email;
       state.token = token;
       state.isLoggedIn = true;
     },
+
+    // ==============================> Action when user log out
+
     signOut: state => {
       state.user = initialState.user;
       state.token = initialState.token;
@@ -23,5 +28,7 @@ export const authSlice = createSlice({
     },
   },
 });
+
+// ==============================> Actions
 
 export const { signIn, signOut } = authSlice.actions;

@@ -2,6 +2,8 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const authAPI = createApi({
   baseQuery: fetchBaseQuery({
+    // ==============================> Default settings
+
     baseUrl: 'https://connections-api.herokuapp.com',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
@@ -12,9 +14,13 @@ export const authAPI = createApi({
     },
   }),
   endpoints: builder => ({
+    // ==============================> Get current user
+
     current: builder.query({
       query: () => ({ url: '/users/current' }),
     }),
+
+    // ==============================> Sign up new user
     signup: builder.mutation({
       query: body => ({
         url: '/users/signup',
@@ -22,6 +28,8 @@ export const authAPI = createApi({
         body,
       }),
     }),
+
+    // ==============================> Sign in existing user
     login: builder.mutation({
       query: body => ({
         url: '/users/login',
@@ -29,6 +37,8 @@ export const authAPI = createApi({
         body,
       }),
     }),
+
+    // ==============================> Sign out current user
     logout: builder.mutation({
       query: () => ({
         url: '/users/logout',
@@ -37,6 +47,8 @@ export const authAPI = createApi({
     }),
   }),
 });
+
+// ==============================> Hooks from API
 
 export const {
   useCurrentQuery,
