@@ -17,6 +17,7 @@ export default function ErrorPlug() {
         src={AngRRRa}
         controls
         autoPlay
+        controlsList="nodownload"
       />
     </section>
   );
