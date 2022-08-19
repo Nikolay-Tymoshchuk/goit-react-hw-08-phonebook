@@ -5,4 +5,13 @@
 .section {
   display: flex;
   justify-content: center;
+  position: relative;
+}
+
+.mood {
+  position: absolute;
+  bottom: 0;
+  right: 25%;
+  max-width: 150px;
+  transform: translateX(50%);
 }
