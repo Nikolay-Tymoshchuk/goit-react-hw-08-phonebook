@@ -22,7 +22,7 @@ function ContactForm() {
   const onSubmit = async ({ name, number }) => {
     try {
       setIsLoadData(true);
-      const response = await contacts?.data?.find(
+      const response = await contacts?.find(
         item => item?.name.toLowerCase() === name.toLowerCase()
       );
       if (response) {
@@ -55,8 +55,10 @@ function ContactForm() {
               message: 'This field is required',
             },
             pattern: {
-              value: /^([a-zA-Z]{2,}\s?[a-zA-Z]{1,})$/,
-              message: 'Name should contain only Latin letters and space',
+              value:
+                /^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/,
+              message:
+                'Name may contain only letters, apostrophe, dash and spaces',
             },
           })}
         />

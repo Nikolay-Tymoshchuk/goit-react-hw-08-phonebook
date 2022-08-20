@@ -69,7 +69,7 @@ export default function AuthForm() {
               message: 'Password must be at most 12 characters',
             },
             pattern: {
-              value: /^(?=.*d)(?=.*[a-z])(?=.*[A-Z])(?!.*s).*$/,
+              value: /^((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/,
               message:
                 'Password must contain at least one digit, one lowercase and one uppercase letter',
             },
