@@ -20,6 +20,7 @@
   & > span:nth-child(2) {
     text-align: start;
     margin-left: $spacing-major;
+    word-wrap: break-word;
   }
 
   @media screen and (min-width: $tablet) {
