@@ -11,6 +11,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 import { configureStore } from '@reduxjs/toolkit';
 import { contactsAPI } from 'services/contacts';
+import { getLayoutImg } from 'services/layout_img';
 import { authAPI } from 'services/auth';
 import { filterSlice } from './filterSlice';
 import { authSlice } from './authSlice';
@@ -26,6 +27,7 @@ export const store = configureStore({
   reducer: {
     [authAPI.reducerPath]: authAPI.reducer,
     [contactsAPI.reducerPath]: contactsAPI.reducer,
+    [getLayoutImg.reducerPath]: getLayoutImg.reducer,
     [filterSlice.name]: filterSlice.reducer,
     [authSlice.name]: persistedReducer,
   },
@@ -34,7 +36,11 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(authAPI.middleware, contactsAPI.middleware),
+    }).concat(
+      authAPI.middleware,
+      contactsAPI.middleware,
+      getLayoutImg.middleware
+    ),
 });
 
 export const persistor = persistStore(store);

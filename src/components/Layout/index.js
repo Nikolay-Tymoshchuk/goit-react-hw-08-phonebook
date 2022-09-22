@@ -3,10 +3,16 @@ import { Outlet } from 'react-router-dom';
 import styles from './index.module.scss';
 import { Pulsar } from '@uiball/loaders';
 import Header from 'components/Header';
+import { useGetImageQuery } from 'services/layout_img';
 
 const Layout = () => {
+  const { data: bgImage } = useGetImageQuery();
+
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{ backgroundImage: `url(${bgImage})` }}
+    >
       <Header />
       <div className={styles.innerContainer}>
         <main>

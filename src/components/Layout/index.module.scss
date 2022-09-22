@@ -9,17 +9,18 @@
   box-shadow: 0 0 20px 15px rgba(0, 0, 0, 0.7);
   background-size: 100%;
   overflow: hidden;
-  background-image: url('../../assets/starless.jpg');
-  // linear-gradient(
-  //   to right,
-  //   #614519 0%,
-  //   #866319 20%,
-  //   #fcbf32 50%,
-  //   #866319 80%,
-  //   #614519 100%
-  // );
+  // url('../../assets/starless.jpg'),
+  background-image: linear-gradient(
+    to right,
+    #614519 0%,
+    #866319 20%,
+    #fcbf32 50%,
+    #866319 80%,
+    #614519 100%
+  );
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center center;
   padding: 0 4 * $spacing-major;
   margin-left: auto;
   margin-right: auto;
