@@ -11,7 +11,7 @@ const Layout = () => {
   return (
     <div
       className={styles.container}
-      style={{ backgroundImage: `url(${bgImage})` }}
+      // style={{ backgroundImage: `url(${bgImage})` }}
     >
       <Header />
       <div className={styles.innerContainer}>
