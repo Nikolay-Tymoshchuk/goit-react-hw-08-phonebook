@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import styles from './index.module.scss';
 import { Pulsar } from '@uiball/loaders';
 import Header from 'components/Header';
-import { useGetImageQuery } from 'services/layout_img';
+// import { useGetImageQuery } from 'services/layout_img';
 
 const Layout = () => {
   // const { data: bgImage } = useGetImageQuery();
