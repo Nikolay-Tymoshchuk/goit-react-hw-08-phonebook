@@ -6,7 +6,7 @@ import Header from 'components/Header';
 import { useGetImageQuery } from 'services/layout_img';
 
 const Layout = () => {
-  const { data: bgImage } = useGetImageQuery();
+  // const { data: bgImage } = useGetImageQuery();
 
   return (
     <div
